@@ -15,11 +15,13 @@ setup(
     zip_safe=True,
     maintainer='xetho',
     maintainer_email='tediberhanu777@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Simple wheeled robot with gesture recognition',
+    license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'talker = gesture_controlled_robot_py.movt_pub_node:main',
+            'listener = gesture_controlled_robot_py.movt_sub_node:main',
         ],
     },
 )
