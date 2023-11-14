@@ -17,7 +17,6 @@
 
         <!-- MOVEMENT -->
         <!-- arrow keys -->
-
         <!-- forward -->
         <plugin filename="libignition-gazebo-triggered-publisher-system.so"
             name="ignition::gazebo::systems::TriggeredPublisher">
@@ -58,6 +57,51 @@
                 linear: {x: 0.0}, angular: {z: -0.5}
             </output>
         </plugin>
+
+
+
+
+        <!-- gesture controls -->
+        <!-- forward -->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+        <input type="ignition.msgs.Int32" topic="/movement/gesture">
+            <match field="data">8</match>
+            <!-- up arrow key -->
+        </input>
+        <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            linear: {x: 0.5}, angular: {z: 0.0}
+        </output>
+    </plugin>
+
+    <!-- backward -->
+    <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+        <input type="ignition.msgs.Int32" topic="/movement/gesture">
+            <match field="data">5</match>
+        </input>
+        <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            linear: {x: -0.5}, angular: {z: 0.0}
+        </output>
+    </plugin>
+    <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+        <input type="ignition.msgs.Int32" topic="/movement/gesture">
+            <match field="data">4</match>
+        </input>
+        <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            linear: {x: 0.0}, angular: {z: 0.5}
+        </output>
+    </plugin>
+    <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+        <input type="ignition.msgs.Int32" topic="/movement/gesture">
+            <match field="data">6</match>
+        </input>
+        <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            linear: {x: 0.0}, angular: {z: -0.5}
+        </output>
+    </plugin>
 
         <!-- internal measurement unit(imu) sensor -->
         <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu"></plugin>
