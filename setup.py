@@ -10,6 +10,23 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('lib/python3.10/site-packages/' + package_name + '/hand_gesture_recognition_mediapipe',
+         ['./gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/keypoint_classification.ipynb',
+          './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/keypoint_classification_EN.ipynb',
+          './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/point_history_classification.ipynb',
+          ]),
+        ('lib/python3.10/site-packages/' + package_name + '/hand_gesture_recognition_mediapipe/model/keypoint_classifier', [
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint.csv',
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint_classifier.hdf5',
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint_classifier.tflite',
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint_classifier_label.csv'
+        ]),
+        ('lib/python3.10/site-packages/' + package_name + '/hand_gesture_recognition_mediapipe/model/point_history_classifier', [
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history.csv',
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history_classifier.hdf5',
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history_classifier.tflite',
+            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history_classifier_label.csv'
+        ]),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

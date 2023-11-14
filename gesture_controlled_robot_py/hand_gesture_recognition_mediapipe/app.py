@@ -13,9 +13,9 @@ import numpy as np
 import mediapipe as mp
 
 
-from hand_gesture_recognition_mediapipe.utils import CvFpsCalc
-from hand_gesture_recognition_mediapipe.model import KeyPointClassifier
-from hand_gesture_recognition_mediapipe.model import PointHistoryClassifier
+from gesture_controlled_robot_py.hand_gesture_recognition_mediapipe.utils import CvFpsCalc
+from gesture_controlled_robot_py.hand_gesture_recognition_mediapipe.model import KeyPointClassifier
+from gesture_controlled_robot_py.hand_gesture_recognition_mediapipe.model import PointHistoryClassifier
 
 
 def get_args():
