@@ -1,4 +1,0 @@
-[console_scripts]
-listener = gesture_controlled_robot_py.movt_sub_node:main
-talker = gesture_controlled_robot_py.movt_pub_node:main
-
