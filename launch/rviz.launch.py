@@ -5,6 +5,10 @@ from launch.substitutions import Command
 import os
 from ament_index_python.packages import get_package_share_path
 
+"""
+Rviz2 launch file. unused
+"""
+
 def generate_launch_description():
 
     package_name = 'gesture_controlled_robot_py'

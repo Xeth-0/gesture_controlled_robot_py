@@ -10,6 +10,10 @@ from launch_ros.actions import Node
 
 import xacro
 
+"""
+Launches robot description for Rviz2 visualization
+"""
+
 
 def generate_launch_description():
     package_name = 'gesture_controlled_robot_py'

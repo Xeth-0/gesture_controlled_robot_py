@@ -23,5 +23,3 @@ keyboard needs a terminal
 Arms can be moved by giving the desired 3 angles of the robot
 >>>ros2 run gesture_controlled_robot_py trajectory_publisher 
 
-
-Camera Doesnt have much use rn.

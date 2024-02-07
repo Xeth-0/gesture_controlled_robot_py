@@ -4,7 +4,7 @@ from glob import glob
 
 package_name = 'gesture_controlled_robot_py'
 
-files = glob('models/*/my_robot.urdf.xacro')
+files = glob('models/*/*.urdf.xacro')
 for file in files:
     cmd = 'ros2 run xacro xacro '+file+' > ' + file.replace('.xacro', '.urdf')
     os.system(cmd)
