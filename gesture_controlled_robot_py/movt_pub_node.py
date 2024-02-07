@@ -7,6 +7,11 @@ from geometry_msgs.msg import Twist
 
 # import threading
 
+"""
+This node controls the robot movement.
+    Was made separate to add other forms of mov't control to the robot.
+"""
+
 class MovtPublisher(Node):
     def __init__(self):
         super().__init__('movement_publisher')
@@ -17,7 +22,7 @@ class MovtPublisher(Node):
         # bg_thread.run()
 
     def gesture_reciever(self, gesture):
-        # can publish direct to the robot, but since we need a subscriber for this.....
+        # can publish direct to the robot, but separating this to add other forms of controls as well
         msg = String()
         msg.data = gesture
 

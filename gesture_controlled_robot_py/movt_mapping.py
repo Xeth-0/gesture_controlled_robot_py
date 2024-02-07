@@ -1,7 +1,16 @@
+"""
+Mapping for the different mov't commands to their cmd/vel translations.
+"""
+
 SPEED = 0.8
+
 
 MAPPING = {
     "Forward": {
+        'linear': (SPEED, 0.0, 0.0),
+        'angular': (0.0)
+    },
+    "Go": {
         'linear': (SPEED, 0.0, 0.0),
         'angular': (0.0)
     },

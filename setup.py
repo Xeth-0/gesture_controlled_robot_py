@@ -1,6 +1,13 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'gesture_controlled_robot_py'
+
+files = glob('models/*/my_robot.urdf.xacro')
+for file in files:
+    cmd = 'ros2 run xacro xacro '+file+' > ' + file.replace('.xacro', '.urdf')
+    os.system(cmd)
 
 setup(
     name=package_name,
@@ -10,24 +17,22 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('lib/python3.10/site-packages/' + package_name + '/hand_gesture_recognition_mediapipe',
-         ['./gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/keypoint_classification.ipynb',
-          './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/keypoint_classification_EN.ipynb',
-          './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/point_history_classification.ipynb',
-          ]),
-        ('lib/python3.10/site-packages/' + package_name + '/hand_gesture_recognition_mediapipe/model/keypoint_classifier', [
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint.csv',
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint_classifier.hdf5',
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint_classifier.tflite',
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/keypoint_classifier/keypoint_classifier_label.csv'
-        ]),
-        ('lib/python3.10/site-packages/' + package_name + '/hand_gesture_recognition_mediapipe/model/point_history_classifier', [
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history.csv',
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history_classifier.hdf5',
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history_classifier.tflite',
-            './gesture_controlled_robot_py/hand_gesture_recognition_mediapipe/model/point_history_classifier/point_history_classifier_label.csv'
-        ]),
+        (os.path.join('share', package_name, 'models'), glob('models/*/*.urdf')),
+        (os.path.join('share', package_name, 'models'), glob('models/*/*.xacro')),
+        (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
+        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
+        (os.path.join('share', package_name, 'config'), glob('config/*')),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
     ],
+    package_data={
+        # '': ['package.xml'],
+        package_name: [
+            'hand_gesture_recognition_mediapipe/*',
+            'hand_gesture_recognition_mediapipe/*/*.ipynb',
+            'hand_gesture_recognition_mediapipe/model/keypoint_classifier/*',
+            'hand_gesture_recognition_mediapipe/model/point_history_classifier/*',
+        ],
+    },
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='xetho',
@@ -38,7 +43,10 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = gesture_controlled_robot_py.movt_pub_node:main',
-            'listener = gesture_controlled_robot_py.movt_sub_node:main',
+            'listener = gesture_controlled_robot_py.gesture_listener_node:main',
+            'object_avoidance = gesture_controlled_robot_py.object_avoidance:main',
+            'trajectory_subscriber = gesture_controlled_robot_py.trajectory_subscriber:main',
+            'trajectory_publisher = gesture_controlled_robot_py.trajectory_publisher:main'
         ],
     },
 )

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="common_properties.xacro" />
+    <xacro:include filename="mobile_base.xacro" />
+    <xacro:include filename="mobile_base_gazebo.xacro" />
+    
+    
+    <!-- ============================================================ -->
+    <!-- connecting the arm with its joint -->
+    <xacro:include filename="arm.xacro" />
+    <xacro:include filename="arm_gazebo.xacro" />
+    <joint name="mobile_base_arm_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="link_0" />
+        <origin xyz="${base_length / 4.0} 0 ${base_height}" rpy="0 0 0" />
+    </joint>
+
+
+    <!-- ============================================================ -->
+    <!-- connecting the depth camera with its joint -->
+    
+    <!-- <xacro:include filename="camera.xacro" /> -->
+    <xacro:include filename="depth_camera.xacro" />
+    
+    <joint name="base_camera_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="camera_link" />
+        <origin xyz="${(base_length + camera_length) / 2.0} 0 ${base_height / 2.0}" rpy="0 0 0" />
+    </joint>
+
+
+</robot>
