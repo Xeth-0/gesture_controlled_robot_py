@@ -1,1 +1,1 @@
-from gesture_controlled_robot_py.hand_gesture_recognition_mediapipe import *
+import gesture_controlled_robot_py
