@@ -64,9 +64,7 @@ Beside these links and joints, the robot also consists of end_links and
 joints for these links, that are located at the end of links 1 and 2.
 Their joints are fixed. The robot arm on it's own is displayed below.
 
-![](./media/media/image8.png){width="5.432292213473316in"
-height="6.302851049868766in"}
-
+![](./media/media/image8.png)
 ### Mobile Base
 
 The mobile base is the main base for the entire robot. It consists of
@@ -77,9 +75,6 @@ and robot arms are attached as well.
     is used here as the reference frame for the robot\'s movement and
     positioning.
 
-```{=html}
-<!-- -->
-```
 -   **base_link**: This link represents the main body of the robot. It
     is visualized as a box with dimensions 0.55m x 0.45m x 0.5m. It has
     inertial definition and a collision geometry matching the visual
@@ -92,9 +87,6 @@ and robot arms are attached as well.
     geometries and inertial definitions specifying a mass of 1.0 unit
     and inertia values.
 
-```{=html}
-<!-- -->
-```
 -   **caster_wheel_link**: This link represents a caster wheel, used for
     stability and support. It also allows the robot to turn in both left
     and right directions. It is visualized as a sphere with a radius of
@@ -112,23 +104,18 @@ These links are connected by 4 joints specified below.
     and axes defining the positions and orientations of the wheels
     relative to the base_link.
 
-```{=html}
-<!-- -->
-```
 -   **base_caster_wheel_joint**: Another fixed joint connecting the
     base_link to the caster_wheel_link, with an origin offset along the
     x-axis and z-axis.
 
-![](./media/media/image9.png){width="4.589885170603675in"
-height="5.336298118985127in"}
+![](./media/media/image9.png)
 
 ### Full Robot Design
 
 Overall, combining the arm, the wheeled base and the depth camera, we
 have the final design displayed below.
 
-![](./media/media/image14.png){width="6.5in"
-height="7.541666666666667in"}
+![](./media/media/image14.png)
 
 The red rectangle in the front of the wheeled base is the depth-camera.
 
@@ -159,7 +146,7 @@ for efficient navigation in diverse environments.
 To provide an alternative control interface, a custom node is
 implemented for gesture detection using the laptop camera feed. Using a
 hand recognition library obtained
-[[online]{.underline}](https://github.com/kinivi/hand-gesture-recognition-mediapipe),
+[[from here]](https://github.com/kinivi/hand-gesture-recognition-mediapipe),
 this node analyzes the camera feed to detect predefined palm gestures.
 The online library we used has functionality to detect palm gestures and
 has a setting that allows training of custom commands, so we used that
@@ -168,12 +155,11 @@ comfortable to perform. We then updated the model and integrated it with
 our custom node to translate the gestures into movement commands for our
 robot.
 
-![](./media/media/image5.png){width="1.3242825896762904in"
-height="1.529453193350831in"}![](./media/media/image13.png){width="1.328125546806649in"
-height="1.5245374015748032in"}![](./media/media/image1.png){width="1.3266655730533683in"
-height="1.5122134733158354in"}![](./media/media/image3.png){width="1.3177088801399826in"
-height="1.5074584426946631in"}![](./media/media/image4.png){width="1.3385422134733158in"
-height="1.51125656167979in"}
+![](./media/media/image5.png)
+![](./media/media/image13.png)
+![](./media/media/image1.png)
+![](./media/media/image3.png)
+![](./media/media/image4.png)
 
 Upon detection, the gestures are interpreted as commands for controlling
 the robot\'s movement or manipulation.
@@ -215,17 +201,16 @@ robot base, camera or arm.
 
 Let's visualize the depth-camera using rviz2.
 
-![](./media/media/image16.png){width="3.182292213473316in"
-height="2.8792158792650917in"}![](./media/media/image11.png){width="3.4027777777777777in"
-height="2.807292213473316in"}
+![](./media/media/image16.png)
+![](./media/media/image11.png)
+
 
 In the pictures above, first we have the robot's position and
 environment in Gazebo. On the right we have its visualization in Rviz2,
 using PointCloud2 to show the camera feed from the depth camera. What it
 exactly sees is also shown below.
 
-![](./media/media/image12.png){width="6.067708880139983in"
-height="3.6853554243219597in"}
+![](./media/media/image12.png)
 
 We use this to calculate the distance of the robot from the object in
 front of it, and stop it if it gets too close. The robot will also not
@@ -330,12 +315,11 @@ the node with the command:
 
 Then, input the three desired angles for the robot arm
 
-![](./media/media/image10.png){width="5.390625546806649in"
-height="0.5157097550306212in"}
+![](./media/media/image10.png)
 
-![](./media/media/image7.png){width="2.6174857830271216in"
-height="3.6093755468066493in"}![](./media/media/image15.png){width="2.569675196850394in"
-height="3.5468755468066493in"}
+![](./media/media/image7.png)
+![](./media/media/image15.png)
+
 
 # Summary
 
