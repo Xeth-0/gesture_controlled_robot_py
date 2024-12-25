@@ -1,17 +1,5 @@
 // Currently planning to add path finding to the robot using simple AI algorithms such as A* Search
 
-**[Group Members]**
-
-1.  Dawit Getahun UGR/9220/13
-
-2.  Metsakal Zeleke UGR/1027/13
-
-3.  Tewodros Berhanu UGR/9715/13
-
-4.  Tinsae Shemalise UGR/6075/13
-
-5.  Yohannes Dessie UGR/7612/13
-
 # Gesture Controlled Wheeled Robot with 3 DOF Arm, and Collision Avoidance
 
 # Introduction
